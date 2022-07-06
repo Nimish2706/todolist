@@ -10,6 +10,7 @@ import { Todo } from 'src/app/Todo';
 export class TodoItemComponent implements OnInit {
   title:string;
   desc:string;
+  value:boolean=false;
   @Input() todo: Todo;
   @Input() i: number;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
@@ -29,8 +30,14 @@ export class TodoItemComponent implements OnInit {
   }
   onSubmit(todo: Todo)
   {
+    
     todo.title=this.title
     todo.desc=this.desc
+    this.value=false
 
+  }
+  editTodo(todo:Todo)
+  {
+      this.value=true;
   }
 }
